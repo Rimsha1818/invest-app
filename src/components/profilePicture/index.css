@@ -1,0 +1,13 @@
+.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-dev-only-do-not-override-amq5gd).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+  width: auto !important;
+  height: auto !important;
+  margin-inline-end: 0 !important;
+  margin-bottom: 0 !important;
+  text-align: center;
+  vertical-align: top;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}

@@ -1,0 +1,59 @@
+@import '_spacing-helper.scss';
+
+
+.flex {
+    display: flex;
+    flex: 1;
+    .row {
+        flex-direction: row;
+    }
+    .column {
+        flex-direction: column;
+    }
+    .right {
+        justify-content: flex-end;
+    }
+    .center {
+        justify-content: center;
+    }
+    .middle {
+        align-items: center;
+    }
+    .space-between {
+        justify-content: space-between;
+    }
+}
+
+.flex-0 {
+    flex: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+// Animation fadein
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

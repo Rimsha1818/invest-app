@@ -1,0 +1,9 @@
+.ant-table-tbody > tr.task-assigned-row, .ant-table-tbody > tr.task-assigned-row > td {
+    background-color: #efefef; 
+  }
+  .ant-table-header .ant-table-thead > tr > th {
+    visibility: visible !important;
+  }
+  .task-assigned-row, .task-assigned-row > .ant-table-cell.ant-table-cell-fix-left {
+    background-color: #efefef;
+  }
