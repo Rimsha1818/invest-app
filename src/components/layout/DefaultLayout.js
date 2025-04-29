@@ -151,125 +151,6 @@ const DefaultLayout = ({ children }) => {
       label: "User Data",
       route: "/users",
     },
-    {
-      key: "ParallelApprover",
-      icon: <UserSwitchOutlined />,
-      label: "Parallel Approvers",
-      route: "/parallel-approvers",
-    },
-  ];
-
-  const formMenuItems = [
-    {
-      key: "SoftwareChangeRequestForm",
-      icon: <FileTextOutlined />,
-      label: "Software Change Request Form",
-      route: "/scrf",
-    },
-    {
-      key: "CapitalRequestForm",
-      icon: <SolutionOutlined />,
-      label: "Capital Request Form",
-      route: "/crf",
-    },
-    {
-      key: "QualityAssurance",
-      icon: <SafetyCertificateOutlined />,
-      label: "Quality Assurance Form",
-      route: "/quality-assurance",
-    },
-    {
-      key: "deployment",
-      icon: <ExclamationCircleOutlined />,
-      label: "Deployment",
-      route: "/deployment",
-    },
-
-    {
-      key: "MobileRequisition",
-      icon: <ExclamationCircleOutlined />,
-      label: "Mobile Requisition Form",
-      route: "/mobile-requisition",
-    },
-    {
-      key: "MasterDataManagementForm",
-      icon: <ExclamationCircleOutlined />,
-      label: "Master Data Management",
-      route: "/master-data-management-form",
-    },
-    {
-      key: "MasterDataManagementForm",
-      icon: <ExclamationCircleOutlined />,
-      label: "Deployment Form",
-      route: "/deployment",
-    },
-    {
-      key: "SapAccessForm",
-      icon: <FileTextOutlined />,
-      label: "SAP Access Form",
-      route: "/sap-access-form",
-    },
-    {
-      key: "SupportDeskForm",
-      icon: <AppstoreAddOutlined />,
-      label: "Request Support Form",
-      route: "/support-desk-form",
-    },
-  ];
-
-  const configPermissionMenuItems = [
-    {
-      key: "CostCenter",
-      icon: <DollarCircleOutlined />,
-      label: "Cost Center",
-      route: "/cost-center",
-    },
-    {
-      key: "CostCenter",
-      icon: <AppstoreAddOutlined />,
-      label: "MDM Project",
-      route: "/mdm-project",
-    },
-    {
-      key: "CrfSetting",
-      icon: <DollarCircleOutlined />,
-      label: "Crf Settings",
-      route: "/crf-settings",
-    },
-
-    {
-      key: "Equipment",
-      icon: <ApiOutlined />,
-      label: "Equipments",
-      route: "/equipments",
-    },
-  ];
-
-  const serviceDeskMenuItems = [
-    {
-      key: "ServiceDesk",
-      icon: <BellOutlined />,
-      label: "Service Desk",
-      route: "/service-desk",
-    },
-    {
-      key: "ServiceDesk",
-      icon: <BellOutlined />,
-      label: "Request Support Desk",
-      route: "/request-support-desk",
-    },
-    {
-      key: "AssignTask",
-      icon: <UserSwitchOutlined />,
-      label: "Assigned Tasks",
-      route: "/assign-task",
-    },
-    {
-      key: "AutoAssignTask",
-      icon: <UserSwitchOutlined />,
-      label: "Auto Assign Task",
-      route: "/auto-assign-task",
-    },
   ];
 
   const menuItems = [
@@ -278,24 +159,6 @@ const DefaultLayout = ({ children }) => {
       icon: <TeamOutlined />,
       label: "Departments",
       route: "/departments",
-    },
-    {
-      key: "Service",
-      icon: <AppstoreAddOutlined />,
-      label: "Parameters",
-      route: "/params",
-    },
-    {
-      key: "Service",
-      icon: <AppstoreAddOutlined />,
-      label: "Projects",
-      route: "/projects",
-    },
-    {
-      key: "Section",
-      icon: <AppstoreAddOutlined />,
-      label: "Sections",
-      route: "/sections",
     },
     {
       key: "SoftwareCategory",
@@ -321,66 +184,13 @@ const DefaultLayout = ({ children }) => {
       label: "Locations",
       route: "/locations",
     },
-    {
-      key: "BusinessExpert",
-      icon: <TeamOutlined />,
-      label: "Business Expert",
-      route: "/business-expert",
-    },
-    {
-      key: "Subscribers",
-      icon: <UsergroupAddOutlined />,
-      label: "Subscribers",
-      route: "/subscribers",
-    },
-    {
-      key: "Approvers",
-      icon: <CheckOutlined />,
-      label: "Approvers",
-      route: "/approvers",
-    },
-    {
-      key: "Department",
-      icon: <AppstoreAddOutlined />,
-      label: "Makes",
-      route: "/makes",
-    },
-    {
-      key: "MdmCategory",
-      icon: <AppstoreAddOutlined />,
-      label: "Mdm Categories",
-      route: "/mdm-categories",
-    },
+    
     {
       key: "MdmCategory",
       icon: <AppstoreAddOutlined />,
       label: "Companies",
       route: "/companies",
     },
-    {
-      key: "Service",
-      icon: <AppstoreAddOutlined />,
-      label: "Services",
-      route: "/services",
-    },
-    {
-      key: "Service",
-      icon: <AppstoreAddOutlined />,
-      label: "Link Services with Department",
-      route: "/department-services",
-    },
-    {
-      key: "Service",
-      icon: <AppstoreAddOutlined />,
-      label: "Link Teams with Service",
-      route: "/service-teams",
-    },
-    // {
-    //   key: "Service",
-    //   icon: <AppstoreAddOutlined />,
-    //   label: "Parameters",
-    //   route: "/params",
-    // },
   ];
 
   const allowedPermissions =
@@ -391,15 +201,6 @@ const DefaultLayout = ({ children }) => {
     allowedPermissions.includes(`${item.key}-view`)
   );
   const filteredUserManagementItems = userManagement.filter((item) =>
-    allowedPermissions.includes(`${item.key}-view`)
-  );
-  const filteredConfigurationMenuItems = configPermissionMenuItems.filter(
-    (item) => allowedPermissions.includes(`${item.key}-view`)
-  );
-  const filteredServiceDeskMenuItems = serviceDeskMenuItems.filter((item) =>
-    allowedPermissions.includes(`${item.key}-view`)
-  );
-  const filteredFormMenuItems = formMenuItems.filter((item) =>
     allowedPermissions.includes(`${item.key}-view`)
   );
 
@@ -509,67 +310,24 @@ const DefaultLayout = ({ children }) => {
                 </SubMenu>
               )}
               {/* Configurations SubMenu */}
-              {filteredConfigurationMenuItems.length > 0 && (
                 <SubMenu
                   key="configurations" // Unique key for SubMenu
                   title="CONFIGURATIONS"
                   icon={<KeyOutlined />}
                 >
-                  {renderMenuItems(filteredConfigurationMenuItems)}
-
                   {/* Admin-specific Menu Items (with unique keys) */}
                   {currentUser?.roles?.includes("admin") && (
                     <>
-                      <Menu.Item key="admin-forms" icon={<FormOutlined />}>
-                        <Link to="/forms">Forms</Link>
-                      </Menu.Item>
-
-                      <Menu.Item
-                        key="admin-formPermissions"
-                        icon={<KeyOutlined />}
-                      >
-                        <Link to="/form-permissions">Form Permissions</Link>
-                      </Menu.Item>
-
-                      <Menu.Item
-                        key="assignPermissionLink"
-                        icon={<UserSwitchOutlined />}
-                      >
-                        <Link to="/assign-permission">
-                          Assign Form Permissions
-                        </Link>
-                      </Menu.Item>
-
-                      <Menu.Item key="workflowLink" icon={<ProfileOutlined />}>
-                        <Link to="/workflow">Workflow</Link>
-                      </Menu.Item>
-
-                      <Menu.Item
-                        key="withoutWorkflow"
-                        icon={<ProfileOutlined />}
-                      >
-                        <Link to="/without_workflow">Without Workflow</Link>
-                      </Menu.Item>
-
-                      <Menu.Item key="team-group" icon={<SolutionOutlined />}>
-                        <Link to="/team-group ">Create Team</Link>
-                      </Menu.Item>
-
-                      <Menu.Item key="team-member" icon={<SolutionOutlined />}>
-                        <Link to="/team-member ">Assign Team Members</Link>
-                      </Menu.Item>
-
                       <Menu.Item key="settings" icon={<SettingOutlined />}>
                         <Link to="/settings ">System Settings</Link>
                       </Menu.Item>
 
-                      <Menu.Item key="customize" icon={<SettingOutlined />}>
+                      {/* <Menu.Item key="customize" icon={<SettingOutlined />}>
                         <Link to="/customize ">Theme Customizer</Link>
-                      </Menu.Item>
+                      </Menu.Item> */}
                     </>
                   )}
                 </SubMenu>
-              )}
               {filteredMenuItems.length > 0 && (
                 <SubMenu
                   key="SETUP FIELDS"
@@ -579,24 +337,10 @@ const DefaultLayout = ({ children }) => {
                   {renderMenuItems(filteredMenuItems)}
                 </SubMenu>
               )}
-              {filteredFormMenuItems.length > 0 && (
-                <SubMenu key="FORMS" title="FORMS" icon={<FormOutlined />}>
-                  {renderMenuItems(filteredFormMenuItems)}
-                </SubMenu>
-              )}
+           
             </Menu>
 
             <Menu>
-              {filteredServiceDeskMenuItems.length > 0 && (
-                <SubMenu
-                  key="SERVICE DESK"
-                  title="SERVICE DESK"
-                  icon={<BranchesOutlined />}
-                >
-                  {renderMenuItems(filteredServiceDeskMenuItems)}
-                </SubMenu>
-              )}
-
               {collapsed && (
                 <>
                   <Menu.Item key="profile" icon={<EditFilled />}>
@@ -747,65 +491,24 @@ const DefaultLayout = ({ children }) => {
             )}
 
             {/* CONFIGURATIONS */}
-            {filteredConfigurationMenuItems.length > 0 && (
               <SubMenu
                 key="configurations" // Unique key for SubMenu
                 title="CONFIGURATIONS"
                 icon={<KeyOutlined />}
               >
-                {renderMenuItems(filteredConfigurationMenuItems)}
-
                 {/* Admin-specific Menu Items (with unique keys) */}
                 {currentUser?.roles?.includes("admin") && (
                   <>
-                    <Menu.Item key="admin-forms" icon={<FormOutlined />}>
-                      <Link to="/forms">Forms</Link>
-                    </Menu.Item>
-
-                    <Menu.Item
-                      key="admin-formPermissions"
-                      icon={<KeyOutlined />}
-                    >
-                      <Link to="/form-permissions">Form Permissions</Link>
-                    </Menu.Item>
-
-                    <Menu.Item
-                      key="assignPermissionLink"
-                      icon={<UserSwitchOutlined />}
-                    >
-                      <Link to="/assign-permission">
-                        Assign Form Permissions
-                      </Link>
-                    </Menu.Item>
-
-                    <Menu.Item key="workflowLink" icon={<ProfileOutlined />}>
-                      <Link to="/workflow">Workflow</Link>
-                    </Menu.Item>
-
-                    <Menu.Item key="withoutWorkflow" icon={<ProfileOutlined />}>
-                      <Link to="/without_workflow">Without Workflow</Link>
-                    </Menu.Item>
-
-                    <Menu.Item key="team-group" icon={<SolutionOutlined />}>
-                      <Link to="/team-group ">Create Team</Link>
-                    </Menu.Item>
-
-                    <Menu.Item key="team-member" icon={<SolutionOutlined />}>
-                      <Link to="/team-member ">Assign Team Members</Link>
-                    </Menu.Item>
-
                     <Menu.Item key="settings" icon={<SettingOutlined />}>
                       <Link to="/settings ">System Settings</Link>
                     </Menu.Item>
 
-                    <Menu.Item key="customize" icon={<SettingOutlined />}>
+                    {/* <Menu.Item key="customize" icon={<SettingOutlined />}>
                       <Link to="/customize ">Theme Customizer</Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                   </>
                 )}
               </SubMenu>
-            )}
-
             {/* SETUP FIELDS */}
             {filteredMenuItems.length > 0 && (
               <SubMenu
@@ -817,23 +520,6 @@ const DefaultLayout = ({ children }) => {
               </SubMenu>
             )}
 
-            {/* FORMS */}
-            {filteredFormMenuItems.length > 0 && (
-              <SubMenu key="FORMS" title="FORMS" icon={<FormOutlined />}>
-                {renderMenuItems(filteredFormMenuItems)}
-              </SubMenu>
-            )}
-
-            {/* SERVICE DESK */}
-            {filteredServiceDeskMenuItems.length > 0 && (
-              <SubMenu
-                key="SERVICE DESK"
-                title="SERVICE DESK"
-                icon={<BranchesOutlined />}
-              >
-                {renderMenuItems(filteredServiceDeskMenuItems)}
-              </SubMenu>
-            )}
           </Menu>
         </div>
       )}
