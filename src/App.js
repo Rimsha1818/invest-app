@@ -30,6 +30,8 @@ import CompanyData from "./pages/companies";
 import SwitchUser from "./pages/switchUser";
 // SESSION CHECK
 import useSessionCheck from './useSessionCheck';
+import ManageInvestment from "./pages/manageInvestment";
+import DailyProfit from "./pages/dailyProfit";
 
 const ThemeContext = createContext({
   theme: "light", // Default theme
@@ -192,7 +194,29 @@ function App() {
                 )
               }
             />
+            <Route
+              path="/manage-investment"
+              exact
+              element={
+                isAuthenticated && currentUser.roles.includes("admin") ? (
+                  <ManageInvestment />
+                ) : (
+                  <RedirectToLogin />
+                )
+              }
+            />
 
+            <Route
+              path="/daily-profit"
+              exact
+              element={
+                isAuthenticated && currentUser.roles.includes("admin") ? (
+                  <DailyProfit />
+                ) : (
+                  <RedirectToLogin />
+                )
+              }
+            />
             <Route
               path="*"
               exact

@@ -20,6 +20,7 @@ import {
 import {
   UserOutlined,
   EditOutlined,
+  EyeOutlined,
   LockOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
@@ -296,59 +297,7 @@ const UsersData = () => {
       width: 300,
       sorter: (a, b) => a.email.localeCompare(b.email),
     },
-    {
-      title: 'Company',
-      dataIndex: ['company', 'name'],
-      key: 'company', // Changed key to 'company'
-      width: 150,
-      sorter: (a, b) => a.company.name.localeCompare(b.company.name),
-      render: (text, record) => {
-        return record.company && record.company.name ? record.company.name : '-';
-      },
-    },
-    {
-      title: 'Designation',
-      dataIndex: ['designation', 'name'],
-      key: 'designation',
-      width: 180,
-      sorter: (a, b) => {
-        const aDesignation = a.designation && a.designation.name;
-        const bDesignation = b.designation && b.designation.name;
-        return aDesignation.localeCompare(bDesignation);
-      },
-      render: (text, record) => {
-        return (
-          <div>
-            <span>{text}</span>
-          </div>
-        );
-      },
-    },
-    {
-      title: 'Employee No',
-      dataIndex: 'employee_no',
-      key: 'employee_no',
-      width: 140,
-      sorter: (a, b) => a.employee_no.localeCompare(b.employee_no),
-    },
-    {
-      title: 'Employee Type',
-      dataIndex: 'employee_type',
-      key: 'employee_type',
-      width: 170,
-      sorter: (a, b) => a.employee_type.localeCompare(b.employee_type),
-    },
-    {
-      title: 'Extension',
-      dataIndex: 'extension',
-      key: 'extension',
-      width: 100,
-      sorter: (a, b) => {
-        const extensionA = a.extension || '';
-        const extensionB = b.extension || '';
-        return extensionA.localeCompare(extensionB);
-      },
-    },
+
     {
       title: 'Phone',
       dataIndex: 'phone_number',
@@ -364,14 +313,21 @@ const UsersData = () => {
       width: 140,
     },
     {
-      title: 'Department',
+      title: 'Total Investment',
       dataIndex: ['department', 'name'],
       key: 'department_id',
       width: 150,
       sorter: (a, b) => a.department.name.localeCompare(b.department.name),
     },
     {
-      title: 'Section',
+      title: 'Total Profit',
+      dataIndex: ['section', 'name'],
+      key: 'section',
+      width: 120,
+      sorter: (a, b) => a.section.name.localeCompare(b.section.name),
+    },
+    {
+      title: 'Status',
       dataIndex: ['section', 'name'],
       key: 'section',
       width: 120,
@@ -403,6 +359,9 @@ const UsersData = () => {
       width: 80,
       render: (text, record) => (
         <Space>
+           <div onClick={() => handleEdit(record)} style={{ cursor: 'pointer' }}>
+           <EyeOutlined />
+          </div>
           <div onClick={() => handleEdit(record)} style={{ cursor: 'pointer' }}>
             <EditOutlined />
           </div>
@@ -681,133 +640,17 @@ const UsersData = () => {
                   </Form.Item>
                 </Col>
               </Row>
-            </Card>
-            <Card size="small" className="mb-10" title="Role and Department">
               <Row gutter={[12, 12]}>
-                <Col lg={8} md={8} sm={24} xs={24}>
+                <Col lg={24} md={24} sm={24} xs={24}>
                   <Form.Item
-                    name="company_id"
-                    label="Company"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'Please select a Company',
-                      },
-                    ]}
+                    name="name"
+                    label="Address"
                   >
-                    <CompanyComponent all={true} />
-                  </Form.Item>
-                </Col>
-                <Col lg={8} md={8} sm={24} xs={24}>
-                  <Form.Item
-                    name="designation_id"
-                    label="Designation"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'Please select a designation',
-                      },
-                    ]}
-                  >
-                    <DesignationComponent all={true} />
-                  </Form.Item>
-                </Col>
-                <Col lg={8} md={8} sm={24} xs={24}>
-                  <Form.Item
-                    name="employee_no"
-                    label="Employee No"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'Please enter the employee number',
-                      },
-                    ]}
-                  >
-                    <Input size="large" placeholder="Employee No" />
+                    <Input size="large" placeholder="Please enter address" />
                   </Form.Item>
                 </Col>
               </Row>
-              <Row gutter={[12, 12]}>
-                <Col lg={12} md={12} sm={24} xs={24}>
-                  <Form.Item
-                    name="employee_type"
-                    label="Employee Type"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'Please select the employee type',
-                      },
-                    ]}
-                  >
-                    <Select
-                      showSearch={true}
-                      optionFilterProp="children"
-                      size="large"
-                      placeholder="Select Employee Type"
-                    >
-                      <Select.Option value="Permanent">Permanent</Select.Option>
-                      <Select.Option value="Contract">Contract</Select.Option>
-                    </Select>
-                  </Form.Item>
-                </Col>
-                <Col lg={12} md={12} sm={24} xs={24}>
-                  <Form.Item name="extension" label="Extension">
-                    <Input size="large" placeholder="Extension" />
-                  </Form.Item>
-                </Col>
-              </Row>
-
-              <Row gutter={[12, 12]}>
-                <Col lg={12} md={12} sm={24} xs={24}>
-                  <Form.Item
-                    name="role_id"
-                    label="Role"
-                    rules={[
-                      { required: true, message: 'Please select a role' },
-                    ]}
-                  >
-                    <RoleComponent mode="multiple" />
-                  </Form.Item>
-                </Col>
-                <Col lg={12} md={12} sm={24} xs={24}>
-                  <Form.Item
-                    name="department_id"
-                    label="Department"
-                    rules={[
-                      { required: true, message: 'Please select a department' },
-                    ]}
-                  >
-                    <DepartmentComponent all={true} onChange={(id) => getDepartmentOfSection(id)} />
-                  </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={[12, 12]}>
-                <Col span={12}>
-                  <Form.Item
-                    name="section_id"
-                    label="Section"
-                    rules={[
-                      { required: true, message: 'Please select a section' },
-                    ]}
-                  >
-                    <Select
-                      showSearch={true}
-                      optionFilterProp="children"
-                      size="large"
-                      loading={selectLoading}
-                      defaultValue={null}
-                    >
-                      {sections &&
-                        sections.map((section) => (
-                          <Select.Option key={section.id} value={section.id}>
-                            {section.name}
-                          </Select.Option>
-                        ))}
-                    </Select>
-                  </Form.Item>
-                </Col>
-
-                <Col lg={12} md={12} sm={24} xs={24}>
+              <Col lg={12} md={12} sm={24} xs={24}>
                   <Form.Item
                     name="location_id"
                     label="Location"
@@ -818,7 +661,26 @@ const UsersData = () => {
                     <LocationComponent all={true} />
                   </Form.Item>
                 </Col>
+            </Card>
+            <Card size="small" className="mb-10" title="Account Details">
+              <Row gutter={[12, 12]}>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                <Form.Item name="extension" label="Bank Name">
+                    <Input size="large" placeholder="Bank Name" />
+                  </Form.Item>
+                </Col>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                <Form.Item name="extension" label="Account Number">
+                    <Input size="large" placeholder="Account Number" />
+                  </Form.Item>
+                </Col>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                <Form.Item name="extension" label="Account Title">
+                    <Input size="large" placeholder="Title" />
+                  </Form.Item>
+                </Col>
               </Row>
+
             </Card>
 
             {!editingUser && (

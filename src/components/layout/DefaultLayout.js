@@ -152,7 +152,22 @@ const DefaultLayout = ({ children }) => {
       route: "/users",
     },
   ];
-
+  const investItem = [
+    {
+      key: "Department",
+      icon: <TeamOutlined />,
+      label: "Manage User Investment",
+      route: "/manage-investment",
+    },
+    {
+      key: "Department",
+      icon: <TeamOutlined />,
+      label: "Add Daily Profit",
+      route: "/daily-profit",
+    },
+  
+  ];
+  
   const menuItems = [
     {
       key: "Department",
@@ -198,6 +213,9 @@ const DefaultLayout = ({ children }) => {
     [];
   //console.log(allowedPermissions)
   const filteredMenuItems = menuItems.filter((item) =>
+    allowedPermissions.includes(`${item.key}-view`)
+  );
+  const filteredInvestItem = investItem.filter((item) =>
     allowedPermissions.includes(`${item.key}-view`)
   );
   const filteredUserManagementItems = userManagement.filter((item) =>
@@ -337,7 +355,15 @@ const DefaultLayout = ({ children }) => {
                   {renderMenuItems(filteredMenuItems)}
                 </SubMenu>
               )}
-           
+              {filteredInvestItem.length > 0 && (
+                <SubMenu
+                  key="INVESTMENT"
+                  title="INVESTMENT"
+                  icon={<BranchesOutlined />}
+                >
+                  {renderMenuItems(filteredInvestItem)}
+                </SubMenu>
+              )}
             </Menu>
 
             <Menu>
@@ -519,7 +545,16 @@ const DefaultLayout = ({ children }) => {
                 {renderMenuItems(filteredMenuItems)}
               </SubMenu>
             )}
-
+             {filteredInvestItem.length > 0 && (
+                <SubMenu
+                  key="INVESTMENT"
+                  title="INVESTMENT"
+                  icon={<BranchesOutlined />}
+                >
+                  {renderMenuItems(filteredInvestItem)}
+                </SubMenu>
+              )}
+           
           </Menu>
         </div>
       )}
